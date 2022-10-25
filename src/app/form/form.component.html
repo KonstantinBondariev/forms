@@ -1,0 +1,30 @@
+<form action="">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <input #name="ngModel" id="name" type="text" required class="form-control" name="name" [(ngModel)]="user.name">
+
+    <div *ngIf="name.invalid && name.dirty" class="mt-2 alert alert-danger">Name is required</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="age" class="form-label">Age:</label>
+    <input #age="ngModel" id="age" type="number" required class="form-control" name="age" [(ngModel)]="user.age">
+
+    <div *ngIf="age.invalid && age.dirty" class="mt-2 alert alert-danger">Age is required</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="role" class="form-label">Role:</label>
+    <select #role="ngModel" id="role" type="text" required class="form-select" name="role" [(ngModel)]="user.role">
+      <option *ngFor="let role of rols" [value]="role">{{role}}</option>
+    </select>
+
+    <!-- <div *ngIf="role.invalid && role.dirty" class="mt-1 alert alert-danger">Please, choose a role</div> -->
+  </div>
+
+  <div class="mb-3">
+    <button class="btn btn-outline-primary">Save</button>
+  </div>
+</form>
+
+<em>{{user | json}}</em>
